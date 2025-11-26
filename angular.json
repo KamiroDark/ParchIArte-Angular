@@ -56,7 +56,8 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "parchiarte-frontend:build:production"
+              "buildTarget": "parchiarte-frontend:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "buildTarget": "parchiarte-frontend:build:development"
