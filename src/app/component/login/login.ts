@@ -32,7 +32,7 @@ export class LoginComponent {
         localStorage.setItem('usuario', JSON.stringify(response.usuario));
 
         // Ir a eventos
-        this.router.navigate(['/eventos']);
+        this.router.navigate(['/experiencias']);
       },
       error: () => {
         this.errorMessage = 'Email o contraseña incorrectos.';

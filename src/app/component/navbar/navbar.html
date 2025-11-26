@@ -11,13 +11,18 @@
             Login
         </a>
 
+        <!-- Mostrar experiencias si está logueado -->
+        <a *ngIf="estaLogueado()" routerLink="/experiencias" routerLinkActive="active">
+            Experiencias
+        </a>
+
         <!-- Mostrar eventos si está logueado -->
         <a *ngIf="estaLogueado()" routerLink="/eventos" routerLinkActive="active">
             Eventos
         </a>
 
         <!-- Logout -->
-        <a *ngIf="estaLogueado()" (click)="logout()">
+        <a *ngIf="estaLogueado()" (click)="logout()" style="cursor: pointer;">
             Cerrar sesión
         </a>
 
