@@ -1,0 +1,361 @@
+<!-- Hero Section con efectos mejorados -->
+<section id="hero" class="hero section dark-background">
+  
+  
+  <!-- Overlay con gradiente -->
+  <div class="hero-overlay"></div>
+  
+  <!-- Partículas decorativas -->
+  <div class="hero-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div class="container">
+    <div class="row gy-4 justify-content-between align-items-center">
+      <!-- Logo animado -->
+      <div class="col-lg-5 order-lg-last hero-img-container" data-aos="zoom-out" data-aos-delay="100">
+        <div class="hero-logo-wrapper">
+          <img src="assets/img/logo-parchiarte.png" class="img-fluid animated pulse-animation" alt="ParchIArte">
+          <div class="logo-glow"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 d-flex flex-column justify-content-center hero-content" data-aos="fade-up">
+        
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="300">
+          Descubre la <span class="gradient-text">Cultura</span> de 
+          <span class="highlight-text">Bogotá</span>
+        </h1>
+        
+        <p class="hero-description" data-aos="fade-up" data-aos-delay="400">
+          Explora más de <strong>150+ eventos mensuales</strong> de música, teatro, arte y talleres. 
+          Tu aventura cultural comienza aquí.
+        </p>
+        
+        <div class="d-flex flex-wrap gap-3 hero-buttons" data-aos="fade-up" data-aos-delay="500">
+          <a routerLink="/eventos" class="btn-primary-custom">
+            <span>Ver Eventos</span>
+            <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+          <a routerLink="/login" class="btn-secondary-custom">
+            <i class="bi bi-box-arrow-in-right me-2"></i>
+            <span>Iniciar Sesión</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Olas mejoradas -->
+  <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+    <defs>
+      <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+    </defs>
+    <g class="wave1"><use xlink:href="#wave-path" x="50" y="3"></use></g>
+    <g class="wave2"><use xlink:href="#wave-path" x="50" y="0"></use></g>
+    <g class="wave3"><use xlink:href="#wave-path" x="50" y="9"></use></g>
+  </svg>
+</section>
+
+<!-- About Section mejorado -->
+<section id="about" class="about section">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row align-items-xl-center gy-5">
+      <div class="col-xl-5 content">
+        <div class="section-badge mb-3" data-aos="fade-right">
+          <i class="bi bi-info-circle me-2"></i>
+          <span>Sobre Nosotros</span>
+        </div>
+        <h2 class="section-title-large mb-4" data-aos="fade-right" data-aos-delay="100">
+          Conectamos la <span class="gradient-text">cultura</span> con la comunidad
+        </h2>
+        <p class="lead mb-4" data-aos="fade-right" data-aos-delay="200">
+          ParchIArte es tu guía definitiva para descubrir y participar en los mejores eventos culturales de Bogotá.
+        </p>
+
+        <a routerLink="/eventos" class="btn-explore mt-4" data-aos="fade-right" data-aos-delay="400">
+          <span>Explorar Eventos</span>
+          <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+      </div>
+
+      <div class="col-xl-7">
+        <div class="row gy-4 icon-boxes">
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box modern-card">
+              <div class="icon-wrapper music-icon">
+                <i class="bi bi-music-note-beamed"></i>
+              </div>
+              <h3>Música en Vivo</h3>
+              <p>Conciertos, recitales y presentaciones musicales de todos los géneros</p>
+              <div class="card-shine"></div>
+            </div>
+          </div>
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box modern-card">
+              <div class="icon-wrapper art-icon">
+                <i class="bi bi-palette"></i>
+              </div>
+              <h3>Arte y Exposiciones</h3>
+              <p>Galerías, museos y exposiciones de arte local e internacional</p>
+              <div class="card-shine"></div>
+            </div>
+          </div>
+
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon-box modern-card">
+            <div class="icon-wrapper theater-icon">
+            <i class="bi bi-stars"></i>
+            </div>
+                <h3>Teatro y Danza</h3>
+                <p>Obras teatrales, danza contemporánea y performances artísticas</p>
+                <div class="card-shine"></div>
+            </div>
+            </div>
+
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon-box modern-card">
+              <div class="icon-wrapper workshop-icon">
+                <i class="bi bi-book"></i>
+              </div>
+              <h3>Talleres Culturales</h3>
+              <p>Talleres creativos, charlas y actividades educativas</p>
+              <div class="card-shine"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section con diseño tipo grid moderno -->
+<section id="features" class="features section light-background">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <div class="section-badge">
+        <i class="bi bi-stars me-2"></i>
+        <span>Características</span>
+      </div>
+      <h2 class="section-title-large mt-3">
+        Todo lo que necesitas para <span class="gradient-text">explorar</span>
+      </h2>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #ffbb2c, #ff9800);">
+            <i class="bi bi-calendar-event"></i>
+          </div>
+          <h3>Agenda Cultural</h3>
+          <p>Calendario completo de eventos</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #5578ff, #4158d0);">
+            <i class="bi bi-ticket-perforated"></i>
+          </div>
+          <h3>Reserva Fácil</h3>
+          <p>Compra tus tickets al instante</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #e80368, #c2185b);">
+            <i class="bi bi-bell"></i>
+          </div>
+          <h3>Notificaciones</h3>
+          <p>Alertas de nuevos eventos</p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="feature-card">
+          <div class="feature-icon" style="background: linear-gradient(135deg, #47aeff, #2196f3);">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <h3>Ubicaciones</h3>
+          <p>Mapa interactivo de eventos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section mejorado -->
+<section id="stats" class="stats section">
+  <div class="stats-background"></div>
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="section-header text-center mb-5">
+      <h2 class="section-title-large text-white">
+        ParchIArte en <span class="highlight-text">números</span>
+      </h2>
+    </div>
+
+    <div class="row gy-4">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-emoji-smile"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number"><span class="counter">500</span>+</h3>
+            <p>Usuarios Activos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-calendar-check"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number"><span class="counter">150</span>+</h3>
+            <p>Eventos Mensuales</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-building"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number"><span class="counter">80</span>+</h3>
+            <p>Espacios Culturales</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <div class="stat-content">
+            <h3 class="stat-number"><span class="counter">4.8</span></h3>
+            <p>Calificación Promedio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section id="cta" class="cta section light-background">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center" data-aos="zoom-in">
+        <div class="cta-card">
+          <div class="cta-icon mb-4">
+            <i class="bi bi-rocket-takeoff"></i>
+          </div>
+          <h2 class="mb-4">¿Listo para comenzar tu aventura cultural?</h2>
+          <p class="lead mb-4">
+            Únete a cientos de personas que ya están descubriendo los mejores eventos de Bogotá
+          </p>
+          <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a routerLink="/login" class="btn-cta-primary">
+              <i class="bi bi-box-arrow-in-right me-2"></i>
+              Iniciar Sesión
+            </a>
+            <a routerLink="/eventos" class="btn-cta-secondary">
+              <i class="bi bi-calendar-event me-2"></i>
+              Ver Eventos
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer mejorado -->
+<footer id="footer" class="footer dark-background">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a routerLink="/" class="footer-logo d-flex align-items-center mb-4">
+            <img src="assets/img/logo-parchiarte.png" alt="ParchIArte">
+            <span class="ms-3">ParchIArte</span>
+          </a>
+          <p class="footer-description">
+            Tu plataforma definitiva para descubrir la riqueza cultural de Bogotá. 
+            Música, arte, teatro y mucho más.
+          </p>
+          <div class="social-links d-flex gap-3 mt-4">
+            <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 col-6 footer-links">
+          <h4>Enlaces</h4>
+          <ul>
+            <li><a routerLink="/">Inicio</a></li>
+            <li><a routerLink="/eventos">Eventos</a></li>
+            <li><a routerLink="/login">Iniciar Sesión</a></li>
+            <li><a href="#">Ayuda</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 col-6 footer-links">
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="#">Música</a></li>
+            <li><a href="#">Teatro</a></li>
+            <li><a href="#">Arte</a></li>
+            <li><a href="#">Talleres</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-contact">
+          <h4>Contacto</h4>
+          <p>
+            <i class="bi bi-geo-alt me-2"></i>
+            Bogotá, Colombia
+          </p>
+          <p>
+            <i class="bi bi-envelope me-2"></i>
+            info@parchiarte.com
+          </p>
+          <p>
+            <i class="bi bi-phone me-2"></i>
+            +57 (601) 123 4567
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="mb-0">© 2024 <strong>ParchIArte</strong>. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll Top Button -->
+<a href="#" id="scroll-top" class="scroll-top">
+  <i class="bi bi-arrow-up-short"></i>
+</a>

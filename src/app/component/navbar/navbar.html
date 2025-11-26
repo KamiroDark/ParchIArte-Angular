@@ -1,21 +1,52 @@
-<nav class="navbar">
-    <div class="left">
-        <a routerLink="/" class="logo">ParchIArte</a>
-    </div>
+<header class="header d-flex align-items-center fixed-top" [ngClass]="{'scrolled': isScrolled}">
+  <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-    <div class="center">
-        <a routerLink="/login" routerLinkActive="active">Login</a>
-        <a routerLink="/eventos" routerLinkActive="active">Eventos</a>
-    </div>
+    <!-- Logo -->
+    <a routerLink="/" class="logo d-flex align-items-center" (click)="onNavLinkClick()">
+      <img src="assets/img/logo-parchiarte.png" alt="ParchIArte">
+      <h1 class="sitename">ParchIArte</h1>
+    </a>
 
-    <div class="right">
-        <span *ngIf="authService.isLoggedIn()">
-            Hola, {{ usuarioNombre }}
-        </span>
-
-        <button *ngIf="authService.isLoggedIn()" (click)="onLogout()">
-            Logout
-        </button>
-    </div>
+    <!-- Navigation Menu -->
+<nav id="navmenu" class="navmenu" [class.mobile-menu-open]="isMobileMenuOpen">
+  <ul>
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onNavLinkClick()">Inicio</a></li>
+    
+    <!-- Botón de Iniciar Sesión en el menú móvil si no está logueado -->
+    <li class="mobile-only mobile-login-btn" *ngIf="!authService.isLoggedIn()">
+      <a routerLink="/login" class="btn-mobile-login" (click)="onNavLinkClick()">
+        <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
+      </a>
+    </li>
+    
+    <!-- Mostrar info de usuario en menú móvil si está logueado -->
+    <li class="mobile-only mobile-user-info" *ngIf="authService.isLoggedIn()">
+      <span class="user-greeting">Hola, {{ usuarioNombre }}</span>
+      <a (click)="onLogout()" class="mobile-logout">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+      </a>
+    </li>
+  </ul>
 </nav>
-<hr />
+
+    <!-- Desktop User Section / Login Button -->
+    <div class="desktop-auth">
+      <div class="user-section" *ngIf="authService.isLoggedIn(); else loginButton">
+        <span class="user-name">Hola, {{ usuarioNombre }}</span>
+        <button class="btn-logout" (click)="onLogout()">
+          <i class="bi bi-box-arrow-right"></i> Logout
+        </button>
+      </div>
+      
+      <ng-template #loginButton>
+        <a class="btn-getstarted" routerLink="/login">Iniciar Sesión</a>
+      </ng-template>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <i class="mobile-nav-toggle d-xl-none bi" 
+       [ngClass]="isMobileMenuOpen ? 'bi-x' : 'bi-list'"
+       (click)="toggleMobileMenu()"></i>
+
+  </div>
+</header>
