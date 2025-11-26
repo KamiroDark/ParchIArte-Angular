@@ -38,22 +38,6 @@ export class ExperienciaListComponent implements OnInit {
     });
   }
 
-  eliminarExperiencia(id: string | undefined): void {
-    if (!id) return;
-
-    if (confirm('¿Estás seguro de eliminar esta experiencia?')) {
-      this.experienciaService.deleteExperiencia(id).subscribe({
-        next: () => {
-          this.cargarExperiencias(); // Recargar la lista
-          alert('Experiencia eliminada correctamente');
-        },
-        error: (error: any) => {
-          console.error('Error al eliminar:', error);
-          alert('Error al eliminar la experiencia');
-        }
-      });
-    }
-  }
 
   editarExperiencia(id: string | undefined): void {
     if (id) {
@@ -64,4 +48,22 @@ export class ExperienciaListComponent implements OnInit {
   nuevaExperiencia(): void {
     this.router.navigate(['/experiencias/nueva']);
   }
+
+  eliminarExperiencia(id: string | undefined, nombre: string): void {
+  if (!id) return;
+  
+  if (confirm(`¿Estás seguro de eliminar "${nombre}"?\n\nEsta acción no se puede deshacer.`)) {
+    this.experienciaService.deleteExperiencia(id).subscribe({
+      next: () => {
+        this.cargarExperiencias();
+        // Cambia alert por un mensaje más elegante si tienes tiempo
+        alert('✓ Experiencia eliminada correctamente');
+      },
+      error: (error) => {
+        console.error('Error al eliminar:', error);
+        alert('✗ Error al eliminar la experiencia. Intenta de nuevo.');
+      }
+    });
+  }
+}
 }
