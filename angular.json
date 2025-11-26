@@ -60,7 +60,8 @@
               "proxyConfig": "proxy.conf.json"
             },
             "development": {
-              "buildTarget": "parchiarte-frontend:build:development"
+              "buildTarget": "parchiarte-frontend:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
