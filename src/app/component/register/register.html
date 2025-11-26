@@ -1,57 +1,77 @@
-<div class="register-container">
-    <h2>Registrarse</h2>
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card shadow p-4" style="width: 420px;">
 
-    <form (ngSubmit)="onRegister()" #formReg="ngForm">
+        <h3 class="text-center mb-4">Crear Cuenta</h3>
 
-        <!-- Nombre -->
-        <div class="form-group">
-            <label>Nombre completo</label>
-            <input type="text" [(ngModel)]="nombre" name="nombre" required #nombreCtrl="ngModel" />
-            <p class="error" *ngIf="nombreCtrl.invalid && nombreCtrl.touched">El nombre es obligatorio.</p>
-        </div>
+        <form (ngSubmit)="onRegister()" #formReg="ngForm">
 
-        <!-- Email -->
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" [(ngModel)]="email" name="email" required email #emailCtrl="ngModel" />
-            <p class="error" *ngIf="emailCtrl.invalid && emailCtrl.touched">Debes ingresar un email válido.</p>
-        </div>
+            <!-- Nombre -->
+            <div class="mb-3">
+                <label class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" [(ngModel)]="nombre" name="nombre" required
+                    #nombreCtrl="ngModel" />
+                <div class="text-danger mt-1" *ngIf="nombreCtrl.invalid && nombreCtrl.touched">
+                    El nombre es obligatorio.
+                </div>
+            </div>
 
-        <!-- Teléfono -->
-        <div class="form-group">
-            <label>Teléfono</label>
-            <input type="text" [(ngModel)]="telefono" name="telefono" />
-        </div>
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" [(ngModel)]="email" name="email" required email
+                    #emailCtrl="ngModel" />
+                <div class="text-danger mt-1" *ngIf="emailCtrl.invalid && emailCtrl.touched">
+                    Ingresa un email válido.
+                </div>
+            </div>
 
-        <!-- Contraseña -->
-        <div class="form-group">
-            <label>Contraseña</label>
-            <input type="password" [(ngModel)]="password" name="password" required #pwdCtrl="ngModel" minlength="6" />
-            <p class="error" *ngIf="pwdCtrl.invalid && pwdCtrl.touched">La contraseña debe tener al menos 6 caracteres.
+            <!-- Teléfono -->
+            <div class="mb-3">
+                <label class="form-label">Teléfono (opcional)</label>
+                <input type="text" class="form-control" [(ngModel)]="telefono" name="telefono" />
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" class="form-control" [(ngModel)]="password" name="password" required
+                    minlength="6" #pwdCtrl="ngModel" />
+                <div class="text-danger mt-1" *ngIf="pwdCtrl.invalid && pwdCtrl.touched">
+                    La contraseña debe tener al menos 6 caracteres.
+                </div>
+            </div>
+
+            <!-- Confirmar contraseña -->
+            <div class="mb-3">
+                <label class="form-label">Confirmar contraseña</label>
+                <input type="password" class="form-control" [(ngModel)]="confirmPassword" name="confirmPassword"
+                    required #confirmCtrl="ngModel" />
+                <div class="text-danger mt-1" *ngIf="password !== confirmPassword && confirmCtrl.touched">
+                    Las contraseñas no coinciden.
+                </div>
+            </div>
+
+            <!-- Botón -->
+            <button class="btn btn-success w-100" type="submit"
+                [disabled]="formReg.invalid || password !== confirmPassword">
+                Registrarme
+            </button>
+
+            <!-- Éxito / error -->
+            <p class="text-success text-center mt-3" *ngIf="mensajeExito">
+                {{ mensajeExito }}
             </p>
-        </div>
 
-        <!-- Confirmar contraseña -->
-        <div class="form-group">
-            <label>Confirmar contraseña</label>
-            <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required
-                #confirmCtrl="ngModel" />
-            <p class="error" *ngIf="password !== confirmPassword && confirmCtrl.touched">
-                Las contraseñas no coinciden.
+            <p class="text-danger text-center mt-3" *ngIf="mensajeError">
+                {{ mensajeError }}
             </p>
-        </div>
 
-        <!-- Botón -->
-        <button type="submit" [disabled]="formReg.invalid || password !== confirmPassword">
-            Crear cuenta
-        </button>
+        </form>
 
-        <p class="exito" *ngIf="mensajeExito">{{ mensajeExito }}</p>
-        <p class="error" *ngIf="mensajeError">{{ mensajeError }}</p>
-    </form>
+        <p class="text-center mt-3">
+            ¿Ya tienes cuenta?
+            <a routerLink="/login" class="text-primary">Inicia sesión aquí</a>
+        </p>
 
-    <p class="link">
-        ¿Ya tienes cuenta?
-        <a routerLink="/login">Inicia sesión aquí</a>
-    </p>
+    </div>
 </div>

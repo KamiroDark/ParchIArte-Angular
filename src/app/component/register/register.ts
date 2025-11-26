@@ -52,14 +52,13 @@ export class RegisterComponent {
         }, 1500);
       },
       error: (err) => {
-        console.error(err);
-
         if (err.error?.error?.code === 11000) {
           this.mensajeError = 'El email ya está registrado.';
         } else {
-          this.mensajeError = 'No se pudo crear la cuenta. Intenta otra vez.';
+          this.mensajeError = 'No se pudo crear la cuenta.';
         }
       }
     });
   }
+
 }

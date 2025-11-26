@@ -1,35 +1,57 @@
-<nav class="navbar">
-    <div class="center">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
 
-        <!-- Saludo con rol -->
-        <span *ngIf="estaLogueado()" class="usuario">
-            Hola, {{ getNombreUsuario() }} {{ getRolUsuario() }}
-        </span>
+        <a class="navbar-brand" routerLink="/mis-experiencias">ParchIArte</a>
 
-        <!-- Mostrar login si NO está logueado -->
-        <a *ngIf="!estaLogueado()" routerLink="/login" routerLinkActive="active">
-            Login
-        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!-- Opciones para ADMIN -->
-        <a *ngIf="estaLogueado() && esAdmin()" routerLink="/experiencias" routerLinkActive="active">
-            Gestionar Experiencias
-        </a>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
 
-        <!-- Opciones para USUARIO -->
-        <a *ngIf="estaLogueado() && !esAdmin()" routerLink="/mis-experiencias" routerLinkActive="active">
-            Mis Experiencias
-        </a>
+                <!-- Saludo -->
+                <li class="nav-item" *ngIf="estaLogueado()">
+                    <a class="nav-link disabled user-greeting">
+                        Hola, {{ getNombreUsuario() }} 👋
+                    </a>
+                </li>
 
-        <!-- Eventos (para todos) -->
-        <a *ngIf="estaLogueado()" routerLink="/eventos" routerLinkActive="active">
-            Eventos
-        </a>
 
-        <!-- Logout -->
-        <a *ngIf="estaLogueado()" (click)="logout()" style="cursor: pointer;">
-            Cerrar sesión
-        </a>
+                <!-- LOGIN -->
+                <li class="nav-item" *ngIf="!estaLogueado()">
+                    <a class="nav-link" routerLink="/login">Login</a>
+                </li>
 
+                <!-- MIS EXPERIENCIAS (USUARIO NORMAL + ADMIN) -->
+                <li class="nav-item" *ngIf="estaLogueado()">
+                    <a class="nav-link" routerLink="/mis-experiencias">
+                        Mis experiencias
+                    </a>
+                </li>
+
+                <!-- ADMIN: EXPERIENCIAS (LISTA DE ADMIN) -->
+                <li class="nav-item" *ngIf="estaLogueado() && isAdmin()">
+                    <a class="nav-link" routerLink="/experiencias">
+                        Administrar experiencias
+                    </a>
+                </li>
+
+                <!-- ADMIN: NUEVA EXPERIENCIA -->
+                <li class="nav-item" *ngIf="estaLogueado() && isAdmin()">
+                    <a class="nav-link" routerLink="/experiencias/nueva">
+                        Crear experiencia
+                    </a>
+                </li>
+
+                <!-- LOGOUT -->
+                <li class="nav-item" *ngIf="estaLogueado()">
+                    <a class="nav-link text-danger" (click)="logout()">
+                        Cerrar sesión
+                    </a>
+                </li>
+
+            </ul>
+        </div>
     </div>
 </nav>
