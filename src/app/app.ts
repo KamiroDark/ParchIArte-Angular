@@ -9,4 +9,6 @@ import { NavbarComponent } from './component/navbar/navbar';
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
-export class AppComponent { }
+export class AppComponent {
+  title = 'parchiarte-angular';
+}
