@@ -30,3 +30,14 @@ button {
     padding: 5px 10px;
     cursor: pointer;
 }
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.user-greeting {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    cursor: default;
+}

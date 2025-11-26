@@ -21,8 +21,9 @@ export class NavbarComponent {
     return this.authService.isLoggedIn();
   }
 
-  esAdmin(): boolean {
-    return this.authService.isAdmin();
+  isAdmin(): boolean {
+    const usuario = this.authService.getUsuario();
+    return usuario?.rol === 'admin';
   }
 
   getNombreUsuario(): string {
