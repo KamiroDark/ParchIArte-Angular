@@ -17,16 +17,25 @@ export class NavbarComponent {
     private router: Router
   ) { }
 
-  estaLogueado() {
+  estaLogueado(): boolean {
     return this.authService.isLoggedIn();
   }
 
-  getNombreUsuario() {
+  esAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
+
+  getNombreUsuario(): string {
     const usuario = this.authService.getUsuario();
     return usuario ? usuario.nombre : '';
   }
 
-  logout() {
+  getRolUsuario(): string {
+    const usuario = this.authService.getUsuario();
+    return usuario?.rol === 'admin' ? '👑 Admin' : '👤 Usuario';
+  }
+
+  logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
   }

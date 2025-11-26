@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
+import { Usuario } from '../models/usuario';
 
 interface LoginResponse {
     mensaje: string;
     token: string;
-    usuario: {
-        _id?: string;   // por si viene como _id
-        id?: string;
-        nombre: string;
-        email: string;
-    };
+    usuario: Usuario;
 }
 
 @Injectable({
@@ -18,7 +14,7 @@ interface LoginResponse {
 })
 export class AuthService {
 
-    private apiUrl = '/api/usuarios';
+    private apiUrl = 'http://localhost:3000/api/usuarios'; // Ajusta la URL
 
     constructor(private http: HttpClient) { }
 
@@ -38,7 +34,7 @@ export class AuthService {
         localStorage.removeItem('usuario');
     }
 
-    isLoggedIn() {
+    isLoggedIn(): boolean {
         return !!localStorage.getItem('token');
     }
 
@@ -46,12 +42,24 @@ export class AuthService {
         return localStorage.getItem('token');
     }
 
-    getUsuario(): any | null {
+    getUsuario(): Usuario | null {
         const data = localStorage.getItem('usuario');
         return data ? JSON.parse(data) : null;
     }
 
-    register(data: any) {
+    // NUEVO: Verificar si es admin
+    isAdmin(): boolean {
+        const usuario = this.getUsuario();
+        return usuario?.rol === 'admin';
+    }
+
+    // NUEVO: Verificar si es usuario normal
+    isUsuario(): boolean {
+        const usuario = this.getUsuario();
+        return usuario?.rol === 'usuario';
+    }
+
+    register(data: any): Observable<any> {
         return this.http.post(`${this.apiUrl}`, data);
     }
 

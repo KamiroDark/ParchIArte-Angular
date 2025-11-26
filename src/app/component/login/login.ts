@@ -27,12 +27,15 @@ export class LoginComponent {
 
     this.authService.login(this.email, this.password).subscribe({
       next: (response: any) => {
-        // Guardar token y usuario
         localStorage.setItem('token', response.token);
         localStorage.setItem('usuario', JSON.stringify(response.usuario));
 
-        // Ir a eventos
-        this.router.navigate(['/experiencias']);
+        // Redirigir según el rol
+        if (response.usuario.rol === 'admin') {
+          this.router.navigate(['/experiencias']);
+        } else {
+          this.router.navigate(['/mis-experiencias']);
+        }
       },
       error: () => {
         this.errorMessage = 'Email o contraseña incorrectos.';

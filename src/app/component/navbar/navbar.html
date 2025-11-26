@@ -1,9 +1,9 @@
 <nav class="navbar">
     <div class="center">
 
-        <!-- Saludo -->
+        <!-- Saludo con rol -->
         <span *ngIf="estaLogueado()" class="usuario">
-            Hola, {{ getNombreUsuario() }} 👋
+            Hola, {{ getNombreUsuario() }} {{ getRolUsuario() }}
         </span>
 
         <!-- Mostrar login si NO está logueado -->
@@ -11,12 +11,17 @@
             Login
         </a>
 
-        <!-- Mostrar experiencias si está logueado -->
-        <a *ngIf="estaLogueado()" routerLink="/experiencias" routerLinkActive="active">
-            Experiencias
+        <!-- Opciones para ADMIN -->
+        <a *ngIf="estaLogueado() && esAdmin()" routerLink="/experiencias" routerLinkActive="active">
+            Gestionar Experiencias
         </a>
 
-        <!-- Mostrar eventos si está logueado -->
+        <!-- Opciones para USUARIO -->
+        <a *ngIf="estaLogueado() && !esAdmin()" routerLink="/mis-experiencias" routerLinkActive="active">
+            Mis Experiencias
+        </a>
+
+        <!-- Eventos (para todos) -->
         <a *ngIf="estaLogueado()" routerLink="/eventos" routerLinkActive="active">
             Eventos
         </a>
