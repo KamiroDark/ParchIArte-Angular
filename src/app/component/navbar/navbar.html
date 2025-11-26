@@ -1,21 +1,25 @@
 <nav class="navbar">
-    <div class="left">
-        <a routerLink="/" class="logo">ParchIArte</a>
-    </div>
-
     <div class="center">
-        <a routerLink="/login" routerLinkActive="active">Login</a>
-        <a routerLink="/eventos" routerLinkActive="active">Eventos</a>
-    </div>
 
-    <div class="right">
-        <span *ngIf="authService.isLoggedIn()">
-            Hola, {{ usuarioNombre }}
+        <!-- Saludo -->
+        <span *ngIf="estaLogueado()" class="usuario">
+            Hola, {{ getNombreUsuario() }} 👋
         </span>
 
-        <button *ngIf="authService.isLoggedIn()" (click)="onLogout()">
-            Logout
-        </button>
+        <!-- Mostrar login si NO está logueado -->
+        <a *ngIf="!estaLogueado()" routerLink="/login" routerLinkActive="active">
+            Login
+        </a>
+
+        <!-- Mostrar eventos si está logueado -->
+        <a *ngIf="estaLogueado()" routerLink="/eventos" routerLinkActive="active">
+            Eventos
+        </a>
+
+        <!-- Logout -->
+        <a *ngIf="estaLogueado()" (click)="logout()">
+            Cerrar sesión
+        </a>
+
     </div>
 </nav>
-<hr />

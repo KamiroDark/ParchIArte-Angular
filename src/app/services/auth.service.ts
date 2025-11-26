@@ -33,12 +33,12 @@ export class AuthService {
         );
     }
 
-    logout(): void {
+    logout() {
         localStorage.removeItem('token');
         localStorage.removeItem('usuario');
     }
 
-    isLoggedIn(): boolean {
+    isLoggedIn() {
         return !!localStorage.getItem('token');
     }
 
@@ -50,4 +50,9 @@ export class AuthService {
         const data = localStorage.getItem('usuario');
         return data ? JSON.parse(data) : null;
     }
+
+    register(data: any) {
+        return this.http.post(`${this.apiUrl}`, data);
+    }
+
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -13,16 +13,20 @@ import { AuthService } from '../../services/auth.service';
 export class NavbarComponent {
 
   constructor(
-    public authService: AuthService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
-  get usuarioNombre(): string {
-    const usuario = this.authService.getUsuario();
-    return usuario?.nombre || '';
+  estaLogueado() {
+    return this.authService.isLoggedIn();
   }
 
-  onLogout() {
+  getNombreUsuario() {
+    const usuario = this.authService.getUsuario();
+    return usuario ? usuario.nombre : '';
+  }
+
+  logout() {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
